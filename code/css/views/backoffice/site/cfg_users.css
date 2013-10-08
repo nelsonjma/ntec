@@ -1,0 +1,50 @@
+﻿body                        { margin: 0; padding: 0; background-color: grey; }
+
+/*table added style*/
+div.table                   { width: 100%; }
+        
+div.cell                    { text-align: center; vertical-align: top; padding-right: 1px; padding-left: 1px; }
+
+div.cell_title              { font-size: 16px; font-weight: bold; }
+/**************************/
+
+/* title divider style */
+div.title                   { background-color: black; color: white; text-align: center; font: 20px Arial; }
+
+/* center information inside user selector and pages selector */
+#user_container, 
+#availablepages, 
+#userpages                  { display: table; margin: 0 auto; }
+
+/* user list set fixed height */
+#availablepages_container,
+#userpages_container,
+#user_selector              { overflow: auto; height: 300px; }
+
+/* cool text editor */
+.CodeMirror                 { width: 225px;height: 100px; text-align: left; }
+
+/* table format - User List */
+#user_container th                  { text-decoration: underline; }
+#user_container table, th           { font-size: 14px; }
+#user_container table tr td         { border: 0; text-align: center; }
+#user_container input               { background-color: transparent; border: 2px solid black; color: black; /* border radius all browsers */ margin: 4px; -ms-border-radius: 4px; border-radius: 4px; }
+#user_container input:hover         { background-color: darkgray; }
+
+#user_container input.passbox       { background-color: transparent; border: 1px solid black; }
+#user_container input.passbox:hover { background-color: transparent; }
+
+/* table format - Available Pages */
+#availablepages th                  { text-decoration: underline; }
+#availablepages table, th           { font-size: 14px; }
+#availablepages table tr td         { border: 0; text-align: left; }
+#availablepages input               { background-color: transparent; border: 2px solid black; color: black; /* border radius all browsers */ margin: 4px; -ms-border-radius: 4px; border-radius: 4px; }
+#availablepages input:hover         { background-color: darkgray; }
+
+/* table format - User Pages */
+#userpages th                       { text-decoration: underline; }
+#userpages table, th                { font-size: 14px; }
+#userpages table tr td              { border: 0; text-align: left; }
+#userpages input                    { background-color: transparent; border: 2px solid black; color: black; /* border radius all browsers */ margin: 4px; -ms-border-radius: 4px; border-radius: 4px; }
+#userpages input:hover              { background-color: darkgray; }
+

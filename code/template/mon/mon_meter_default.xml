@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mon>
+  <background>
+    <background_color>transparent</background_color>
+  </background>
+  <border>
+    <linewidth>2</linewidth>
+    <border_color>#B8B8B8</border_color>
+    <border_show>true</border_show>
+    <shadow>false</shadow>
+  </border>
+  <label>
+    <label_show>true</label_show>
+    <units_post></units_post>
+    <text_size>7</text_size>
+    <text_color>#B8B8B8</text_color>
+  </label>
+  <marks>
+    <tickmarks_small_num>100</tickmarks_small_num>
+    <tickmarks_big_num>50</tickmarks_big_num>
+    <tickmarks_small_color>black</tickmarks_small_color>
+    <tickmarks_big_color>black</tickmarks_big_color>
+  </marks>
+  <margin>
+    <margin_top>8</margin_top>
+    <margin_bottom>8</margin_bottom>
+    <margin_left>8</margin_left>
+    <margin_right>8</margin_right>
+  </margin>
+</mon>

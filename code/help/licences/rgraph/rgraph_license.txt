@@ -1,0 +1,5 @@
+site url:
+	http://www.rgraph.net/
+
+license:
+	http://creativecommons.org/licenses/by/3.0/legalcode

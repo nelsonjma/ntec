@@ -1,0 +1,27 @@
+﻿.CodeMirror     { width: 800px; height: 100px; text-align: left; }
+
+body            { margin: 0; padding: 0; background-color: gray; }
+
+div.main        { width: 100%; overflow-y: auto; }
+
+div.table       { width: 100%; }
+
+div.cell        { border: 0px solid black; text-align: center; vertical-align: top; }
+
+#op_selector    { height: 350px; }
+
+#opcontainer    { display: table; margin: 0 auto; }
+
+/* table format */
+#opcontainer th             { font-size: 14px; text-decoration: underline; }
+#opcontainer table, th      { font-size: 14px; }
+#opcontainer table tr td    { border: 0; text-align: center; }
+
+#opcontainer input          { background-color: transparent; border: 2px solid black; color: black; /* border radius all browsers */ margin: 4px; -ms-border-radius: 4px; border-radius: 4px; }
+#opcontainer input:hover    { background-color: darkgray; }
+
+/* textbox details */
+#op_url { width: 300px; }
+
+#op_name { width: 200px; }
+

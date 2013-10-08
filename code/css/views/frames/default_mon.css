@@ -1,0 +1,8 @@
+﻿/** MASTER PANEL **********************************************************************************************************************************/
+/* set the padding for title box fit */
+body                    { padding-right: 2px; }
+
+div.mpanel              { vertical-align: top; width: 100%; text-align: center; }
+
+/* value label */
+#monValue               { display: none; font: bold 10px Verdana; background-color:transparent;color: darkgray; }

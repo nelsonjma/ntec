@@ -1,0 +1,17 @@
+﻿       
+body            { margin: 0; padding: 0; background-color: gray; }
+
+div.table       { width: 100%;}
+
+div.cell        { text-align: center; vertical-align: top; }
+
+.CodeMirror     { text-align: left;}
+
+#p_xml_folder   { width: 300px; }
+
+#p_xml_url      { width: 300px; }
+
+#p_name, 
+#p_title        { width: 250px; }
+
+#p_masterpageid { border: 0; }

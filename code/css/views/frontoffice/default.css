@@ -1,0 +1,58 @@
+/** FRONTOFFICE GENERIC VIEW ***************************************************************************************************************************/
+body                    { background-color: #202020;  }
+html, body              { overflow: hidden; } /* remove page scrollbar */
+
+
+/** HEADER MENU BAR ************************************************************************************************************************************/
+/* picture container */
+#pic_container          { margin: 0; padding: 0; margin-left: 2px;}
+
+*                       { margin: 0; padding: 0; }
+div.headerbar           { width: 100%; height: 26px; margin: 0; z-index: 99; position: relative; background-color: #202020;}  /* menu background color*/
+
+ul.navbar li            { list-style: none; text-align: center; }
+ul.navbar ul            { display: none; }
+ul.navbar a             { font-family: Arial; -webkit-font-stretch: normal; -moz-font-stretch: normal; -ms-font-stretch: normal; -o-font-stretch: normal; font-stretch: normal; }
+
+ul.navbar               { position: relative; }
+
+/* MENU LEVEL 0 */
+ul.navbar > li 	        { height: auto; float: left; padding-right: 20px; padding-left: 10px;  }
+ul.navbar li > a        { color: darkgray; font-weight: bold; font-size: 11px; padding-top: 6px;  padding-bottom: 6px; text-decoration: none;  display: block; }
+ul.navbar li:hover      { position: relative; } 
+ul.navbar li a:hover    { color: white; font-weight: bold; } 
+
+/* MENU LEVEL 1 */
+ul.navbar ul            { display: none; top: 100%; left: 0; position: absolute; }	
+ul.navbar li:hover > ul { display: block; }
+ul.navbar ul li         { width:180px; background-color: #D0D0D0; /* sub-menu background color*/
+                          opacity:0.96; 
+                          filter:alpha(opacity=90); /* For IE8 and earlier */} 
+
+ul.navbar ul li a       { color: black; font-size:10px; display: inline-block; width:180px; }
+ul.navbar ul li a:hover { color: black; font-weight: bold; background-color: #F8F8F8; }
+
+/* MENU LEVEL 2 */
+ul.navbar ul ul         { left: 100%; top: 0; }
+/*******************************************************************************************************************************************************/
+
+/** LOGIN BOX ******************************************************************************************************************************************/
+div.loginbox {
+    text-align:right; padding: 2px; position: relative; float:right; width: 250px; background-color: #202020; -ms-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+
+/* menu background color*/
+
+div.loginbox span           { font-family: Arial; font-size:11px; color:white; }
+div.loginbox > span         { color:darkgray; font-weight:bold; border-left: 1px solid gray; padding-left: 4px; padding-right: 4px; }
+div.loginbox > span:hover   { color: white; }
+div.loginbox div            { display:none; float: right; position:relative; }
+
+input.spanbutton            { color:darkgray; font:bold 11px Arial; border: 0; padding-left: 4px; padding-right: 4px; background-color: transparent;}
+input.spanbutton:hover      { color: white; }
+
+input.logintextbox          { width:90px; font: normal 10px Arial; border: 1px solid black; background-color: white; color: black; -ms-border-radius:4px; border-radius:4px; }
+
+input.loginbutton           { width: 35px; font: normal 10px Arial; border: 1px solid white; background-color: #202020; color: white; -ms-border-radius:4px; border-radius:4px; margin-left: 4px; }
+
+/** PAGE FRAME ******************************************************************************************************************************************/
+iframe                      { width: 100%; border: 0; }

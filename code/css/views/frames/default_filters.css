@@ -1,0 +1,25 @@
+﻿/** MASTER PANEL **********************************************************************************************************************************/
+/* set the padding for title box fit */
+body                    { padding-right: 2px; }
+
+/* page container */
+div.mpanel              { vertical-align: top; width: 100%; text-align: center; }
+
+/** BUTTONS **********************************************************************************************************************************/
+/* container */
+div.buttons_container   { float: left; }
+
+/* buttons */
+input.filter_buttons    { width: 40px; font:normal 10px Verdana; border: 1px solid darkgray; background-color: transparent; color: darkgray; -ms-border-radius: 4px; border-radius: 4px; margin-left: 4px; margin-right: 4px; }
+
+/** COMBOBOX **********************************************************************************************************************************/
+/* combobox container */
+table                   { font: normal 10px Verdana; background-color:transparent; }
+table td                { border: 0; text-align:center; }
+
+/* combobox title */
+span                    { font-weight: bold; color: darkgray; }
+
+/* combobox */
+select                  { background-color: transparent; width: 100%; line-height: 1; border: 1px solid darkgray; -webkit-appearance:listbox; color: darkgray; }
+select option           { background-color: #202020;}

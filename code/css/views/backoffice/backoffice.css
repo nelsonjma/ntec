@@ -1,0 +1,59 @@
+﻿/** BACKOFFICE GENERIC VIEW ***************************************************************************************************************************/
+*                       { margin: 0; padding: 0; }
+body                    { background-color: lightgray;  }
+
+/*html, body              { overflow: hidden; } /* remove page scrollbar */
+html                    { overflow: hidden; }
+
+/** HEADER MENU BAR ************************************************************************************************************************************/
+div.headerbar           { width: 100%; height: 26px; margin: 0; z-index: 99; position: relative; background-color: #202020;}  /* menu background color*/
+ul.navbar li            { list-style: none; text-align: center; }
+/*ul.navbar lu            { display: none; }*/
+ul.navbar a             { font-family: Arial; font-stretch: normal; }
+ul.navbar               { position: relative; }
+
+/* MENU LEVEL 0 */
+ul.navbar > li 	        { height: auto; float: left; padding-right: 20px; padding-left: 10px;  }
+ul.navbar li > a        { color: darkgray; font-weight: bold; font-size: 11px; padding-top: 6px;  padding-bottom: 6px; text-decoration: none;  display: block; }
+ul.navbar li:hover      { position: relative; } 
+ul.navbar li a:hover    { color: white; font-weight: bold; } 
+
+/* MENU LEVEL 1 */
+ul.navbar ul            { display: none; top: 100%; left: 0; position: absolute; }	
+ul.navbar li:hover > ul { display: block; }
+ul.navbar ul li         { width:125px; background-color: #202020; /* sub-menu background color, width*/
+                          opacity:0.96; 
+                          filter:alpha(opacity=90); /* For IE8 and earlier */} 
+
+ul.navbar ul li a       { color: darkgray; font-size:10px; display: inline-block;  }
+ul.navbar ul li a:hover { font-weight: bold; background-color: #202020; }
+
+/* MENU LEVEL 2 */
+ul.navbar ul ul         { left: 100%; top: 0; }
+
+/** TREE CTRL ************************************************************************************************************************************/
+#treeCtrl               { float:right; width: 60px; padding: 2px; padding-right: 10px; text-align:right; }
+#treeCtrl a             { color:darkgray; font: bold 11px Arial; }
+#treeCtrl a:hover       { color:white; }
+
+
+/** TABLE ************************************************************************************************************************************/
+#container              { display: table; width: 100%; }
+#row                    { display: table-row; }
+#left                   { display: table-cell; vertical-align: top; background-color: lightyellow; width:250px; }
+#right                  { display: table-cell; vertical-align: top; background-color: lightgreen; }
+
+/** TREE MENU ************************************************************************************************************************************/
+#tree ol li ol          { list-style-image: url("../../../img/views/backoffice/nested.png"); padding:5px 0 5px 18px; }
+#tree ol li ol li       { height:15px; margin-left:10px; }
+
+#tree ol li > a         { color: black; text-decoration: none; font: bold 11px Arial; }
+#tree ol li ol li > a   { color:#800004; text-decoration: none; font: bold 9px Arial; }
+
+/** TREE MASTER PAGE / PAGE OPTIONS ************************************************************************************************************************************/
+div.treeOpBox           { position: absolute; background-color:#202020; border: 1px solid darkgray; padding: 4px; display:none; }
+div.treeOpBox a         { text-decoration: none; color: darkgray; font: normal 11px Arial; }
+div.treeOpBox a:hover   { color: white; }
+
+/** MASTER PAGE / PAGE CONFIG ************************************************************************************************************************************/
+iframe                  { width: 100%; border: 0; }

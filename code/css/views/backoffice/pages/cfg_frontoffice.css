@@ -1,0 +1,11 @@
+﻿.CodeMirror     { text-align: left; height: 300px; width:100%; }
+
+body            { margin: 0; padding: 0; background-color:lightgray;}
+
+#cssSelector    { margin: 4px; }
+
+div.table       { text-align:center; width: 100%; }
+
+div.left        { display: table-cell; vertical-align: top; width:70%; }
+
+div.right       { display: table-cell; vertical-align: top; width:30%; }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mon>
+  <background>
+    <background_color>black</background_color>
+    <background_gradient>true</background_gradient>
+  </background>
+  <border>
+    <border_width>4</border_width>
+    <border_outer>black</border_outer>
+    <border_inner>black</border_inner>
+    <shadow>false</shadow>
+  </border>
+  <label>
+    <text_color>gray</text_color>
+    <text_size>8</text_size>
+    <labels_count>5</labels_count>
+  </label>
+  <marks>
+    <tickmarks_big_num>50</tickmarks_big_num>
+    <tickmarks_medium_num>20</tickmarks_medium_num>
+    <tickmarks_small_num>50</tickmarks_small_num>
+    <tickmarks_big_color>transparent</tickmarks_big_color>
+    <tickmarks_medium_color>gray</tickmarks_medium_color>
+    <tickmarks_small_color>transparent</tickmarks_small_color>
+  </marks>
+  <needle>
+    <centerpin_color>gray</centerpin_color>
+    <needle_color>gray</needle_color>
+    <needle_size>40</needle_size>
+  </needle>
+  <margin>
+    <margin_top>8</margin_top>
+    <margin_bottom>8</margin_bottom>
+    <margin_left>8</margin_left>
+    <margin_right>8</margin_right>
+  </margin>
+</mon>

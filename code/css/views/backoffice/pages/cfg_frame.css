@@ -1,0 +1,29 @@
+﻿body            { margin: 0; padding: 0; background-color: gray; }
+
+div.table       { width: 100%;}
+
+div.cell        { text-align: center; vertical-align: top; padding: 1px; }
+
+div.cell_title  { font-size: 16px; font-weight: bold; }
+
+/* frame viewer ctrls */
+#vr_container   { margin: 0 auto; width: 98%; display: block;border: 1px solid black; }
+iframe          { width: 100%; border: 0; display: none; }
+
+/* set specific textbox width */
+#tbVrHeight, 
+#f_x,
+#f_y, 
+#f_width, 
+#f_height       { width: 50px; }
+
+#f_title        { width: 350px; }
+
+/* black space divider */
+div.backspacer  { background-color: black; }
+
+#option_table   { width: 100%; }
+
+.CodeMirror     { text-align: left; }
+
+select.opselect { border: 0; }

@@ -1,0 +1,23 @@
+﻿body                        { background-color: #202020; color: black; font-family: Verdana; font-size: 12px; }
+
+div.container               { padding: 4px; width: 90%; margin: 0 auto; background-color: white; border: 6px solid black; text-align: left; -ms-border-radius: 8px; border-radius: 8px; }
+
+div.sub_container           { padding-left: 8px; }
+
+div.show_feature_details    { display: none; }
+
+a                           { color: black; text-decoration: none; font-weight: bold; }
+
+a:hover                     { text-decoration: underline; }
+
+li                          { width: 200px; }
+
+.group7,
+.group8,
+.group9,
+.group10,
+.group11,
+.group12,
+.not_url                    { font-weight: normal; }
+
+.not_url:hover              { text-decoration: none; }  

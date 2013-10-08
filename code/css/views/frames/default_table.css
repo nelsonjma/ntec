@@ -1,0 +1,28 @@
+﻿/** Body Workarround **********************************************************************************************************************************/
+body                    { padding-right: 2px; }
+
+/** MASTER PANEL **********************************************************************************************************************************/
+div.mpanel              { vertical-align: top; }
+
+/** COUNTER **********************************************************************************************************************************/
+span.label_counter      { font:normal 10px Verdana; border: 1px solid darkgray; background-color: transparent; color: darkgray; -ms-border-radius:4px; border-radius:4px; padding-left: 4px; padding-right: 4px; }
+
+/** DOWNLOAD **********************************************************************************************************************************/
+a.label_counter         { font:normal 10px Verdana; border: 1px solid darkgray; background-color: transparent; color: darkgray; border-radius:4px; text-decoration:none; padding-left: 4px; padding-right: 4px;}
+
+/** FILTERS **********************************************************************************************************************************/
+input.filter_textbox    { width: 100px; font:normal 9px Verdana; border: 1px solid darkgray; background-color: transparent; color: darkgray; -ms-border-radius:4px; border-radius:4px; }
+input.filter_buttons    { width: 40px; font:normal 10px Verdana; border: 1px solid darkgray; background-color: transparent; color: darkgray; -ms-border-radius:4px; border-radius:4px; margin-left: 4px; margin-right: 4px; }
+span.filter_label       { font:normal 10px Verdana; background-color: transparent; color: darkgray; padding-left: 10px; }
+
+/** TABLE **********************************************************************************************************************************/
+.gridview               { font: 11px Tahoma; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #525252; border-collapse:collapse; }
+.gridview td            { padding: 2px; border: solid 1px #c1c1c1; color: #717171; }
+.gridview a             { color: #fff!important; text-decoration:none; }
+.gridview th            { padding: 4px 2px; color: #fff; background: #424242 url(../../../img/views/frames/grd_head.png) repeat-x top; border-left: solid 1px #525252; font-size: 0.9em; }
+.gridview .alt          { background: #fcfcfc url(../../../img/views/frames/grd_alt.png) repeat-x top; }
+.gridview .pgr          { background: #424242 url(../../../img/views/frames/grd_pgr.png) repeat-x top; }
+.gridview .pgr table    { margin: 5px 0; }
+.gridview .pgr td       { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }   
+.gridview .pgr a        { color: #666; text-decoration: none; }
+.gridview .pgr a:hover  { color: #000; text-decoration: none; }

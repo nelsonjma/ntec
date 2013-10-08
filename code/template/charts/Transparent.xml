@@ -1,0 +1,35 @@
+<Chart BackColor="transparent">
+  <Series>
+    <Series _Template_="All" Font="Calibri, 9.0pt" BorderWidth="2">
+    </Series>
+  </Series>
+  <ChartAreas>
+    <ChartArea _Template_="All" BackColor="Transparent">
+	  
+	  <AxisY LineColor="gray">
+        <MajorGrid LineColor="88,88,88" />
+		    <MinorGrid LineColor="Transparent" />
+        <LabelStyle Font="Calibri, 9.25pt" ForeColor="gray"/>
+      </AxisY>
+	  
+      <AxisX LineColor="gray">
+        <MajorGrid LineColor="88,88,88" />
+		    <MinorGrid LineColor="Transparent" />
+        <LabelStyle Font="Calibri, 9.25pt" ForeColor="gray"/>
+      </AxisX>
+	  
+	  <AxisY2 LineColor="gray">
+        <MajorGrid LineColor="88,88,88" />
+		    <MinorGrid LineColor="Transparent" />
+        <LabelStyle Font="Calibri, 9.25pt" ForeColor="gray"/>
+      </AxisY2>
+	  
+      <AxisX2 LineColor="gray">
+        <MajorGrid LineColor="88,88,88" />
+		    <MinorGrid LineColor="Transparent" />
+        <LabelStyle Font="Calibri, 9.25pt" ForeColor="gray"/>
+      </AxisX2>	  
+    </ChartArea>
+  </ChartAreas>
+  <BorderSkin SkinStyle="None" PageColor="Transparent" />
+</Chart>

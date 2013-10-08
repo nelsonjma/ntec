@@ -1,0 +1,6 @@
+﻿/** PAGE GENERIC VIEW ***************************************************************************************************************************/
+body                    { background-color: transparent;  }
+*                       { padding: 0; margin: 0; }
+
+/* TABLE DRAW */
+table td                { padding-top: 1px; }

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="NtEcConFigs" EntityNamespace="DbConfig" ContextNamespace="DbConfig" Class="NtEcConFigs" BaseType="DbLinq.Data.Linq.DataContext" Provider="Sqlite" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="main.frame" Member="Frame">
+    <Type Name="Frame">
+      <Association Name="fk_frame_0" Member="Page" Storage="_page" Type="Page" ThisKey="IDPage" OtherKey="ID" IsForeignKey="true" />
+      <Column Name="frame_type" Member="FrameType" Storage="_frameType" Type="System.String" DbType="VARCHAR(100)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="height" Member="Height" Storage="_height" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="id" Member="ID" Storage="_id" Type="System.Int32" DbType="INT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_page" Member="IDPage" Storage="_idpAge" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="is_active" Member="IsActive" Storage="_isActive" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="lastupd" Member="LastUpd" Storage="_lastUpd" Type="System.String" DbType="VARCHAR(20)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="options" Member="Options" Storage="_options" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="schedule_interval" Member="ScheduleInterval" Storage="_scheduleInterval" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="scroll" Member="Scroll" Storage="_scroll" Type="System.String" DbType="VARCHAR(15)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="title" Member="Title" Storage="_title" Type="System.String" DbType="VARCHAR(255)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="width" Member="Width" Storage="_width" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="x" Member="X" Storage="_x" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="y" Member="Y" Storage="_y" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="main.frontoffice" Member="FrontOffice">
+    <Type Name="FrontOffice">
+      <Column Name="id" Member="ID" Storage="_id" Type="System.Int32" DbType="INT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="lastupd" Member="LastUpd" Storage="_lastUpd" Type="System.String" DbType="VARCHAR(20)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="options" Member="Options" Storage="_options" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="main.master_page" Member="MasterPage">
+    <Type Name="MasterPage">
+      <Association Name="fk_page_0" Member="Page" Storage="_page" Type="Page" ThisKey="ID" OtherKey="IDMasterPage" DeleteRule="NO ACTION" />
+      <Column Name="description" Member="Description" Storage="_description" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="id" Member="ID" Storage="_id" Type="System.Int32" DbType="INT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="options" Member="Options" Storage="_options" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="title" Member="Title" Storage="_title" Type="System.String" DbType="VARCHAR(255)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="main.options" Member="Options">
+    <Type Name="Options">
+      <Column Name="id" Member="ID" Storage="_id" Type="System.Int32" DbType="INT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lastupd" Member="LastUpd" Storage="_lastUpd" Type="System.String" DbType="VARCHAR(20)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="name" Member="Name" Storage="_name" Type="System.String" DbType="NVARCHAR(255)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="obj_type" Member="OBJType" Storage="_objtYpe" Type="System.String" DbType="CHAR" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="options" Member="Options1" Storage="_options1" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="url" Member="URL" Storage="_url" Type="System.String" DbType="NVARCHAR(255)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="main.page" Member="Page">
+    <Type Name="Page">
+      <Association Name="fk_frame_0" Member="Frame" Storage="_frame" Type="Frame" ThisKey="ID" OtherKey="IDPage" DeleteRule="NO ACTION" />
+      <Association Name="fk_page_0" Member="MasterPage" Storage="_masterPage" Type="MasterPage" ThisKey="IDMasterPage" OtherKey="ID" IsForeignKey="true" />
+      <Association Name="fk_page_users_0" Member="PageUsers" Storage="_pageUsers" Type="PageUsers" ThisKey="ID" OtherKey="IDPage" DeleteRule="NO ACTION" />
+      <Column Name="id" Member="ID" Storage="_id" Type="System.Int32" DbType="INT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_master_page" Member="IDMasterPage" Storage="_idmAsterPage" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="name" Member="Name" Storage="_name" Type="System.String" DbType="VARCHAR(255)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="options" Member="Options" Storage="_options" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="title" Member="Title" Storage="_title" Type="System.String" DbType="VARCHAR(255)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="xml_folder_path" Member="XMLFolderPath" Storage="_xmlfOlderPath" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="xml_url" Member="XMLURL" Storage="_xmlurl" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="main.page_users" Member="PageUsers">
+    <Type Name="PageUsers">
+      <Association Name="fk_page_users_0" Member="Page" Storage="_page" Type="Page" ThisKey="IDPage" OtherKey="ID" IsForeignKey="true" />
+      <Association Name="fk_page_users_1" Member="Users" Storage="_users" Type="Users" ThisKey="IDUser" OtherKey="ID" IsForeignKey="true" />
+      <Column Name="id" Member="ID" Storage="_id" Type="System.Int32" DbType="INT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_page" Member="IDPage" Storage="_idpAge" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="id_user" Member="IDUser" Storage="_iduSer" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="lastupd" Member="LastUpd" Storage="_lastUpd" Type="System.String" DbType="VARCHAR(20)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="main.users" Member="Users">
+    <Type Name="Users">
+      <Association Name="fk_page_users_1" Member="PageUsers" Storage="_pageUsers" Type="PageUsers" ThisKey="ID" OtherKey="IDUser" DeleteRule="NO ACTION" />
+      <Column Name="admin" Member="AdMIn" Storage="_adMiN" Type="System.Int32" DbType="INT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="admin_options" Member="AdMInOptions" Storage="_adMiNOptions" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="description" Member="Description" Storage="_description" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="id" Member="ID" Storage="_id" Type="System.Int32" DbType="INT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lastupd" Member="LastUpd" Storage="_lastUpd" Type="System.String" DbType="VARCHAR(20)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="name" Member="Name" Storage="_name" Type="System.String" DbType="NVARCHAR(250)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="pass" Member="Pass" Storage="_pass" Type="System.String" DbType="NVARCHAR(250)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="user_options" Member="UserOptions" Storage="_userOptions" Type="System.String" DbType="TEXT" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
