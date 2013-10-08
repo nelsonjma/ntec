@@ -5,6 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
+    
+    <!-- Logo -->
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- JQuery -->
     <script src="../js/jquery-1.9.0.js"></script>

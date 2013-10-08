@@ -5,13 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="refresh" id="refreshPage" runat="server"/>
-
-    <link id="cssStyle" runat="server" href="css/views/page/default.css" rel="stylesheet" />
     
+    <!-- Logo -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
     <!-- JQuery -->
     <script src="js/jquery-1.9.0.js"></script>
     
     <!-- Site  -->
+    <link id="cssStyle" runat="server" href="css/views/page/default.css" rel="stylesheet" />
+
     <script src="js/views/page/page.js"></script>
 
     <title id="pageTitle"></title>
