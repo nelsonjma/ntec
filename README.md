@@ -1,7 +1,7 @@
 ntec
 ====
 
-is an open-source information visualization and analysis tool that is available under the MIT license
+is an open-source information visualization and analysis tool that is available under the MIT license.
 
 Users features:
 
