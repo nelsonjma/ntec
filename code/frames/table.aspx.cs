@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web.UI.WebControls;
 
@@ -76,6 +77,9 @@ public partial class frames_table : System.Web.UI.Page
 
         // ------ Table ------
         int rowsCount = -1;
+        
+        // file name is here to be used outside the try catch
+        string xmlFilePath = string.Empty;
 
         try
         {
@@ -83,7 +87,7 @@ public partial class frames_table : System.Web.UI.Page
             string xmlFileName = oi.GetSingle("xml_file").Trim();
 
             // set real folder
-            string xmlFilePath = GenericFrameSettings.BuildXmlFilePath(xmlFileName, frame.IDPage);
+            xmlFilePath = GenericFrameSettings.BuildXmlFilePath(xmlFileName, frame.IDPage);
 
             // set virtual folder
             lbDownload.HRef = GenericFrameSettings.BuildXmlFileVirtualPath(xmlFileName, frame.IDPage); 
@@ -137,12 +141,16 @@ public partial class frames_table : System.Web.UI.Page
                 //AddColorMarkers(new List<string> { });
 
                 /********** Rows Count **********/
-                LabelCountVisible(oi.GetSingle("label_count_visible").Trim().ToLower().Equals("false"));
                 LoadLabelCount(rowsCount);
+                LabelCountVisible(oi.GetSingle("label_count_visible").Trim().ToLower().Equals("false"));
+
+                /********** Show Xml File lastupd **********/
+                LabelFileLastUpdVisible(oi.GetSingle("show_xml_file_lastupd").Trim().ToLower().Equals("true"));
+                LoadLabelFileLastUpd(xmlFilePath);
 
                 /********** Downloads **********/
                 LabelDownloadVisible(oi.GetSingle("label_download_visible").Trim().ToLower().Equals("false"));
-
+                
 
                 /********** Table Color Alarms **********/
                 TableColorAlarms(oi.GetList("warning_text"), 
@@ -183,6 +191,25 @@ public partial class frames_table : System.Web.UI.Page
         lbCount.Visible = !show;
     }
     /**************************************************/
+
+    /******************** Xml File LastUpd ********************/
+    private void LoadLabelFileLastUpd(string fileName)
+    {
+        try
+        {
+            if (lbFileLastUpd.Visible)
+                lbFileLastUpd.Text = "LastUpd: " + File.GetLastWriteTime(fileName).ToString("yyyy-MM-dd hh:mm:ss");
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error reading file last modified date - " + ex.Message);
+        }
+    }
+
+    private void LabelFileLastUpdVisible(bool show)
+    {
+        lbFileLastUpd.Visible = show;
+    }
 
     /******************** Paging ********************/
     private void GridView_Paging(string numberPages, int rowCount)

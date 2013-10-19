@@ -26,7 +26,8 @@
                 var frameId = $(this).attr('id');
                 var frame = $(this).parent('td');
 
-                if (frame.css('border') == '1px solid rgb(0, 0, 0)') {
+                //if (frame.css('border') == '1px solid rgb(0, 0, 0)') {
+                if (frame.css('border-left-width') == '1px') { // the value had to be changed because frame.css('border')  does not work in firefox and ie8 well I am FK because probably i have more errors like this OMG
 
                     SelectFrame(frameId); // we dont need to validate, because if page save it will be refreshed.
 
@@ -215,7 +216,7 @@
         }
 
         table tr td {
-            border: 1px solid black;
+            border: 1px solid #000000;
             font: 10px verdana;
             margin: 0 auto;
             color: whitesmoke;

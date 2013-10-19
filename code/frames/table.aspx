@@ -26,8 +26,9 @@
             </div>
             
             <div id="table_container">
-                <asp:Label ID="lbCount" runat="server" Text="" Visible="false" CssClass="label_counter"/>
+                <asp:Label ID="lbCount" runat="server" Text="" Visible="false" CssClass="label"/>
                 <a id="lbDownload" runat="server" href="#" target="_blank" class="label_counter">Download</a>
+                <asp:Label ID="lbFileLastUpd" runat="server" Text="" Visible="false" CssClass="label"/>
                 <asp:Label ID="lbFilterText" runat="server" Text="Filters:" Visible="false" CssClass="filter_label"/>
                 <asp:TextBox ID="tbFilters" runat="server" Width="200px" Visible="false" CssClass="filter_textbox"/>
                 <asp:Button ID="btFilters" runat="server" Text="Apply" Visible="false" OnClick="btFilters_Click" CssClass="filter_buttons" />

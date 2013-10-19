@@ -265,7 +265,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
   ntecScript += " sql table_paging table_show_header table_sort table_width title_is_hidden title_style x_axis_interval xml_file page_alignment center left right hidden_from_frontoffice columns_to_filter label_value_color label_value_back_color";
   ntecScript += " min_value max_value default_value mon_type meter gauge favorites default_frontoffice_page schedule_interval disable hours minutes refresh_interval measure_type vertical_filtes needle_size back_color";
   ntecScript += " warning_text warning_color critical_text critical_color color_ok color_warning color_critical meter_ok meter_warning meter_critical gauge_warning_start gauge_critical_start x_label_angle border_marks_colors border_marks_values";
-  ntecScript += " custom_html custom_css custom_javascript hyperlinks hyperlinks_color default_page refresh_page_interval input_data master slave titles query_debug url is_clustered text_font text_size text_color disable_x_label ";
+  ntecScript += " custom_html custom_css custom_javascript hyperlinks hyperlinks_color default_page refresh_page_interval input_data master slave titles query_debug url is_clustered text_font text_size text_color disable_x_label show_xml_file_lastupd ";
 
 
   // turn a space-separated list into an array
