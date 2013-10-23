@@ -58,7 +58,7 @@ $(document).ready(function () {
     });
 
     // open option box
-    $("#left").mouseleave(function () {
+    $("#left").mouseleave(function (e) {
 
         HideOpBox("#treePageOpBox");
         HideOpBox("#treeMasterPageOpBox");
