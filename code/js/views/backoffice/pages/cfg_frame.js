@@ -313,6 +313,9 @@ function RefreshFrameViewer() {
         
         GetPageType(pageid);
         BuildPageTitle(pageid);
+
+        // set the page dropdown to this page position
+        $('#f_pageid').val(pageid);
     }
 
 }
