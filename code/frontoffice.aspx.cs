@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Views.Frontoffice;
 using DbConfig;
 
@@ -38,6 +37,8 @@ public partial class frontoffice : System.Web.UI.Page
     /// </summary>
     private void FillMenuBar(OptionItems foOptions)
     {
+        string username = "guest";
+
         try
         {
             headerContainer.Controls.Clear();
@@ -61,13 +62,16 @@ public partial class frontoffice : System.Web.UI.Page
                 userOi = new OptionItems(user.User.UserOptions);
 
                 userFavorites = userOi.GetList("favorites");
+
+                // prepare username to be used in error exception.
+                username = user.User.Name;
             }
 
             // set url to use when the page start
             SelectDefaultPage(foOptions.GetSingle("default_page"), user != null
                                                                         ? userOi.GetSingle("default_frontoffice_page")
                                                                         : "");
-
+            
             MenuBar mb = new MenuBar();
             mb.AddHeader("Home", "frontoffice.aspx");
 
@@ -119,8 +123,9 @@ public partial class frontoffice : System.Web.UI.Page
 
                     foreach (string favpage in userFavorites)
                     {
-                        DbConfig.Page p = dcp.Get(favpage);
+                        if (!dcp.PageExists(favpage)) continue;
 
+                        DbConfig.Page p = dcp.Get(favpage);
                         mb.AddMenuItem(favItemId, p.Title, "page.aspx?nm=" + p.Name);
                     }
 
@@ -135,7 +140,7 @@ public partial class frontoffice : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception("error: fill menu bar - " + ex.Message + " ...");
+            throw new Exception("error: fill menu bar for user " + username + " - " + ex.Message + " ...");
         }
     }
 

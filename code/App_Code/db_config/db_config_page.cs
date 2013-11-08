@@ -287,6 +287,31 @@ namespace DbConfig
             }
         }
 
+        /* Check if page exists*/
+        public bool PageExists(string name)
+        {
+            try
+            {
+                return _allPages.Exists(x => x.Name == name);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error: cant check if page " + name + " exists - " + ex.Message + " ...");
+            }
+        }
+
+        public bool PageExists(int id)
+        {
+            try
+            {
+                return _allPages.Exists(x => x.ID == id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error: cant check if page id" + id + " exists - " + ex.Message + " ...");
+            }
+        }
+
         /* Database operations */
         /* Insert */
         public void Add(Page p)
