@@ -4,7 +4,11 @@ var fAvalTypedOp;
 
 var pageType;
 
+var frameChanged;
+
 $(document).ready(function () {
+    frameChanged = false;
+
 
     RefreshFrameViewer(); // loads frames from pageid;
 
@@ -140,6 +144,16 @@ $(document).ready(function () {
             RefreshOptionBox();
         }
 
+    });
+    
+
+    /***************************** detect data changed *****************************/
+    $("#f_width, #f_height, #f_x, #f_y, #f_title, #f_isactive, #f_pageid, #f_type, #f_scroll, #f_schedule_interval").bind("change paste keyup", function () {
+        frameChanged = true;
+    });
+
+    fOptions.on('keyup', function (cMirror) {
+        frameChanged = true;
     });
 
 });
@@ -285,14 +299,15 @@ function SelectFrame(id) {
 
         GetFrame(id); // loads frame
         
-    } else if (frameId != -1 && frameId != id) {
+    } else if (frameId != -1) {
 
-        if (confirm("Save current frame ?")) {
-
+        if (frameChanged && confirm("Save current frame ?")) {
             document.getElementById('btSaveP').click();
         } else {
             GetFrame(id); // loads frame
         }
+        
+        frameChanged = false;
     }
 }
 

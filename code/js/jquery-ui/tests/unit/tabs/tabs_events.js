@@ -253,33 +253,16 @@ test( "beforeLoad", function() {
 	equal( panel.html().toLowerCase(), "<p>testing</p>", "panel html after" );
 });
 
-asyncTest( "load", function() {
-	expect( 21 );
+if ( $.uiBackCompat === false ) {
+	asyncTest( "load", function() {
+		expect( 21 );
 
-	var tab, panelId, panel,
-		element = $( "#tabs2" );
+		var tab, panelId, panel,
+			element = $( "#tabs2" );
 
-	// init
-	element.one( "tabsload", function( event, ui ) {
-		tab = element.find( ".ui-tabs-nav li" ).eq( 2 );
-		panelId = tab.attr( "aria-controls" );
-		panel = $( "#" + panelId );
-
-		ok( !( "originalEvent" in event ), "originalEvent" );
-		equal( ui.tab.length, 1, "tab length" );
-		strictEqual( ui.tab[ 0 ], tab[ 0 ], "tab" );
-		equal( ui.panel.length, 1, "panel length" );
-		strictEqual( ui.panel[ 0 ], panel[ 0 ], "panel" );
-		equal( ui.panel.find( "p" ).length, 1, "panel html" );
-		state( element, 0, 0, 1, 0, 0 );
-		tabsload1();
-	});
-	element.tabs({ active: 2 });
-
-	function tabsload1() {
-		// .option()
+		// init
 		element.one( "tabsload", function( event, ui ) {
-			tab = element.find( ".ui-tabs-nav li" ).eq( 3 );
+			tab = element.find( ".ui-tabs-nav li" ).eq( 2 );
 			panelId = tab.attr( "aria-controls" );
 			panel = $( "#" + panelId );
 
@@ -289,30 +272,49 @@ asyncTest( "load", function() {
 			equal( ui.panel.length, 1, "panel length" );
 			strictEqual( ui.panel[ 0 ], panel[ 0 ], "panel" );
 			equal( ui.panel.find( "p" ).length, 1, "panel html" );
-			state( element, 0, 0, 0, 1, 0 );
-			tabsload2();
+			state( element, 0, 0, 1, 0, 0 );
+			tabsload1();
 		});
-		element.tabs( "option", "active", 3 );
-	}
+		element.tabs({ active: 2 });
 
-	function tabsload2() {
-		// click, change panel content
-		element.one( "tabsload", function( event, ui ) {
-			tab = element.find( ".ui-tabs-nav li" ).eq( 4 );
-			panelId = tab.attr( "aria-controls" );
-			panel = $( "#" + panelId );
+		function tabsload1() {
+			// .option()
+			element.one( "tabsload", function( event, ui ) {
+				tab = element.find( ".ui-tabs-nav li" ).eq( 3 );
+				panelId = tab.attr( "aria-controls" );
+				panel = $( "#" + panelId );
 
-			equal( event.originalEvent.type, "click", "originalEvent" );
-			equal( ui.tab.length, 1, "tab length" );
-			strictEqual( ui.tab[ 0 ], tab[ 0 ], "tab" );
-			equal( ui.panel.length, 1, "panel length" );
-			strictEqual( ui.panel[ 0 ], panel[ 0 ], "panel" );
-			equal( ui.panel.find( "p" ).length, 1, "panel html" );
-			state( element, 0, 0, 0, 0, 1 );
-			start();
-		});
-		element.find( ".ui-tabs-nav .ui-tabs-anchor" ).eq( 4 ).click();
-	}
-});
+				ok( !( "originalEvent" in event ), "originalEvent" );
+				equal( ui.tab.length, 1, "tab length" );
+				strictEqual( ui.tab[ 0 ], tab[ 0 ], "tab" );
+				equal( ui.panel.length, 1, "panel length" );
+				strictEqual( ui.panel[ 0 ], panel[ 0 ], "panel" );
+				equal( ui.panel.find( "p" ).length, 1, "panel html" );
+				state( element, 0, 0, 0, 1, 0 );
+				tabsload2();
+			});
+			element.tabs( "option", "active", 3 );
+		}
+
+		function tabsload2() {
+			// click, change panel content
+			element.one( "tabsload", function( event, ui ) {
+				tab = element.find( ".ui-tabs-nav li" ).eq( 4 );
+				panelId = tab.attr( "aria-controls" );
+				panel = $( "#" + panelId );
+
+				equal( event.originalEvent.type, "click", "originalEvent" );
+				equal( ui.tab.length, 1, "tab length" );
+				strictEqual( ui.tab[ 0 ], tab[ 0 ], "tab" );
+				equal( ui.panel.length, 1, "panel length" );
+				strictEqual( ui.panel[ 0 ], panel[ 0 ], "panel" );
+				equal( ui.panel.find( "p" ).length, 1, "panel html" );
+				state( element, 0, 0, 0, 0, 1 );
+				start();
+			});
+			element.find( ".ui-tabs-nav .ui-tabs-anchor" ).eq( 4 ).click();
+		}
+	});
+}
 
 }( jQuery ) );

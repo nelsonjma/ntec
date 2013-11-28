@@ -60,7 +60,7 @@
         <div class="table">
             <div class="row">
                 <div class="cell">
-                    <span class="label">Xml Folder: </span><input type="text" id="p_xml_folder" runat="server" class="textbox"/>
+                    <span class="label">Xml/DataFile Folder: </span><input type="text" id="p_xml_folder" runat="server" class="textbox"/>
                     <span class="label">Xml Url: </span><input type="text" id="p_xml_url" runat="server" class="textbox"/>
                 </div>
             </div>

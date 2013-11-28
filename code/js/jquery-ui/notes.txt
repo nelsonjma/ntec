@@ -1,0 +1,1 @@
+change to version jquery-ui-1.9.2 because of dragable problems in jquery ui version 1.10.3

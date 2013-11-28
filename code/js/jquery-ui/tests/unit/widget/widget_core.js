@@ -13,23 +13,18 @@ TestHelpers.testJshint( "widget" );
 
 test( "widget creation", function() {
 	expect( 5 );
-	var method,
-		myPrototype = {
-			_create: function() {
-				equal( method, "_create", "create function is copied over" );
-			},
-			creationTest: function() {
-				equal( method, "creationTest", "random function is copied over" );
-			}
-		};
+	var myPrototype = {
+		_create: function() {},
+		creationTest: function() {}
+	};
 
 	$.widget( "ui.testWidget", myPrototype );
 	ok( $.isFunction( $.ui.testWidget ), "constructor was created" );
-	equal( typeof $.ui.testWidget.prototype, "object", "prototype was created" );
-	method = "_create";
-	$.ui.testWidget.prototype._create();
-	method = "creationTest";
-	$.ui.testWidget.prototype.creationTest();
+	equal( "object", typeof $.ui.testWidget.prototype, "prototype was created" );
+	equal( $.ui.testWidget.prototype._create, myPrototype._create,
+		"create function is copied over" );
+	equal( $.ui.testWidget.prototype.creationTest, myPrototype.creationTest,
+		"random function is copied over" );
 	equal( $.ui.testWidget.prototype.option, $.Widget.prototype.option,
 		"option method copied over from base widget" );
 });
@@ -94,9 +89,9 @@ test( "custom selector expression", function() {
 });
 
 test( "jQuery usage", function() {
-	expect( 14 );
+	expect( 16 );
 
-	var elem, instance, ret,
+	var elem, instance, ret, bcInstance,
 		shouldCreate = false;
 
 	$.widget( "ui.testWidget", {
@@ -138,6 +133,12 @@ test( "jQuery usage", function() {
 	equal( instance.element[0], elem[0], "element stored on widget" );
 	ret = elem.testWidget( "methodWithParams", "value1", "value2" );
 	equal( ret, elem, "jQuery object returned from method call" );
+
+	// 1.9 BC for #7810
+	// TODO remove
+	bcInstance = elem.data("testWidget");
+	equal( typeof bcInstance, "object", "instance stored in .data(pluginName)" );
+	equal( bcInstance.element[0], elem[0], "element stored on widget" );
 
 	ret = elem.testWidget( "getterSetterMethod" );
 	equal( ret, 5, "getter/setter can act as getter" );
@@ -840,7 +841,7 @@ test( "_on() to common element", function() {
 			ok( true, "handler triggered" );
 		}
 	});
-	var widget = $( "#widget" ).testWidget().data( "ui-testWidget" );
+	var widget = $( "#widget" ).testWidget().data( "testWidget" );
 	$( "#widget-wrapper" ).testWidget();
 	widget.destroy();
 	$( document ).trigger( "customevent" );
@@ -852,7 +853,7 @@ test( "_off() - single event", function() {
 	$.widget( "ui.testWidget", {} );
 	var shouldTriggerWidget, shouldTriggerOther,
 		element = $( "#widget" ),
-		widget = element.testWidget().data( "ui-testWidget" );
+		widget = element.testWidget().data( "testWidget" );
 	widget._on( element, { foo: function() {
 		ok( shouldTriggerWidget, "foo called from _on" );
 	}});
@@ -873,7 +874,7 @@ test( "_off() - multiple events", function() {
 	$.widget( "ui.testWidget", {} );
 	var shouldTriggerWidget, shouldTriggerOther,
 		element = $( "#widget" ),
-		widget = element.testWidget().data( "ui-testWidget" );
+		widget = element.testWidget().data( "testWidget" );
 	widget._on( element, {
 		foo: function() {
 			ok( shouldTriggerWidget, "foo called from _on" );
@@ -901,7 +902,7 @@ test( "_off() - all events", function() {
 	$.widget( "ui.testWidget", {} );
 	var shouldTriggerWidget, shouldTriggerOther,
 		element = $( "#widget" ),
-		widget = element.testWidget().data( "ui-testWidget" );
+		widget = element.testWidget().data( "testWidget" );
 	widget._on( element, {
 		foo: function() {
 			ok( shouldTriggerWidget, "foo called from _on" );
@@ -1327,34 +1328,6 @@ test( "redefine - widgetEventPrefix", function() {
 	equal( $.ui.testWidget.prototype.widgetEventPrefix, "test",
 		"cusotm prefix in extension" );
 
-});
-
-test( "mixins", function() {
-	expect( 2 );
-
-	var mixin = {
-		method: function() {
-			return "mixed " + this._super();
-		}
-	};
-
-	$.widget( "ui.testWidget1", {
-		method: function() {
-			return "testWidget1";
-		}
-	});
-	$.widget( "ui.testWidget2", {
-		method: function() {
-			return "testWidget2";
-		}
-	});
-	$.widget( "ui.testWidget1", $.ui.testWidget1, mixin );
-	$.widget( "ui.testWidget2", $.ui.testWidget2, mixin );
-
-	equal( $( "<div>" ).testWidget1().testWidget1( "method" ),
-		"mixed testWidget1", "testWidget1 mixin successful" );
-	equal( $( "<div>" ).testWidget2().testWidget2( "method" ),
-		"mixed testWidget2", "testWidget2 mixin successful" );
 });
 
 asyncTest( "_delay", function() {

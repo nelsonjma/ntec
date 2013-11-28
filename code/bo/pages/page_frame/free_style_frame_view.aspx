@@ -133,7 +133,6 @@
     <title>free style frame</title>
 </head>
 <body>
-    <input id="webServiceKey" type="hidden" runat="server" />
-    
+    <input id="webServiceKey" type="hidden" runat="server" />    
 </body>
 </html>
