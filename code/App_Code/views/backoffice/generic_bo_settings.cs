@@ -24,7 +24,7 @@ namespace Views.BackOffice
 
                 if (uld != null)
                 {
-                    return ((UserLoginData)uld).User.AdMIn == 1 ? true : false;
+                    return ((UserLoginData)uld).User.AdMIn == 1;
                 }
             }
             catch { }
