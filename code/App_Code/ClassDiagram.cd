@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DbConfig.db_config" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAABAIAAAEAAQAAAAAAgAAABAAQAAAACAAAA=</HashCode>
+      <FileName>App_Code\db_config\db_config.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.db_config_frame" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAEAAABAAAgBACAAQAAAAAgkAgAAAAAAAAAACABA=</HashCode>
+      <FileName>App_Code\db_config\db_config_frame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.db_config_frontoffice" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAABAAAAQACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\db_config\db_config_frontoffice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.db_config_master_page" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIQAEAAAAAAAABABAAQIACAAAEAAAAAAAAAAAEAAAk=</HashCode>
+      <FileName>App_Code\db_config\db_config_master_page.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.db_config_options" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIEAAAAACAABAAAAQAAAAAAGAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>App_Code\db_config\db_config_options.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.db_config_page" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAIIAHAAAhAAABBAAAAQAEAAAgEAAAAAAAAAIwACABg=</HashCode>
+      <FileName>App_Code\db_config\db_config_page.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.db_config_sessions" Collapsed="true">
+    <Position X="27" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\db_config\db_config_sessions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.db_config_users" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCACQGAAAQCAAABEAAAYAAgAAgAAAIAoIAIAAAAAABA=</HashCode>
+      <FileName>App_Code\db_config\db_config_users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.UserLoginData" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\db_config\db_config_users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.NtEcConFigs" Collapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAASAAAAAQAgAAAAAAAAAAACAAAAAAAAAAAABAABE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.Frame" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMgIAwJRYeTiEAAEqBHAEAJiDQCIATAJBAkBABAYRE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DbConfig.FrontOffice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAABQQAAgAAAAABEAAABiCQAIAQAABAEAABAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DbConfig.MasterPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABAYEwgEAEAABFAAABiCIAJAQAABQABABAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DbConfig.Options" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAiIAABQwAAgAIBIABEAAQBjCQAQAAAABAEBAAAAAI=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DbConfig.Page" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJQiIAABAYAAgkJIYABFAAQRiCAAYEQAABHAhghIABE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DbConfig.PageUsers" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgICABQAAQiAAAAABGAAABiCUAIIAAABCEAAAAEQA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DbConfig.Users" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiIAABQAUggAAFcgBkCAQRiCWEQAIDARUEAAAAABA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DbConfig.OptionItems" Collapsed="true">
+    <Position X="23.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAwAgAAAAABAAAAAAAAAAIAAAAAgI=</HashCode>
+      <FileName>App_Code\db_config\option_item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DbConfig.OptionItem" Collapsed="true">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\db_config\option_item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicQueryable" Collapsed="true">
+    <Position X="27" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAACAAAAAAAAAAAAAAAQAAAEAAAAAAAEAQAAAEAA=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicClass" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicProperty" Collapsed="true">
+    <Position X="25.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicExpression" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicOrdering" Collapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.Signature" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAoAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Linq.Dynamic.ClassFactory" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAAAAAAABACAQAAAAAACAAAAASAAAAAABAAg=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.ParseException" Collapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAkAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.ExpressionParser" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Co+4gUICBFAhMm7UoEgTE7BCIIzYpCqIKkUKBAmRAYI=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.Res" Collapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgMKhAIAgAAgEAgCIBSSAQAFDAgABEACoACAgLAA8A=</HashCode>
+      <FileName>App_Code\dynamic_link\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Generic" Collapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIQAAAoAAACAAAAEAgAAAAACAAAAAAACIAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\generic\generic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HtmlObjects" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgSAAAAAAAAIAAAAAQAAAAAAAAABAAAAABACAAAAAA=</HashCode>
+      <FileName>App_Code\generic\html_objects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="data_handler" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\generic\load_data\data_handler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dynamic_select" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAQACKgAAAABAghEAwEAAAAgEIAAAAAAABQAAAgAA=</HashCode>
+      <FileName>App_Code\generic\load_data\dynamic_select.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="loging" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>App_Code\generic\log\loging.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogingFileFormats" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\generic\log\loging_file_formats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="bo_cmds" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>pkAAUkiBAACACAIEAAAAAAAABoAAAkBAYBACECEIBgA=</HashCode>
+      <FileName>App_Code\views\backoffice\bo_cmds.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JsonUserPages" Collapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\backoffice\bo_cmds.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JsonUser" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAQgAAAIAAAAAQQAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\backoffice\bo_cmds.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="mon_service" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>App_Code\views\frames\mon\mon_service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonData" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\mon\mon_service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="table_service" Collapsed="true">
+    <Position X="27" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\table\table_service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.BackOffice.GenericBackOfficeSettings" Collapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\backoffice\generic_bo_settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.BackOffice.PageTree" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAACAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\backoffice\page_tree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.BackOffice.TreeItem" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAACAAAAAA=</HashCode>
+      <FileName>App_Code\views\backoffice\page_tree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.filter_sessions" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAAAAAQAAAQEAAAAAAAAAAAAABAAQAEAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\filters\filter_sessions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.combobox_filter" Collapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACAEFAAAIhREgIAAQAAAAAIQAAAQACEAAAIAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\filters\objects\combobox_filter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.frame_sessions" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\frame_sessions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.GenericFrameSettings" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAABAAAAAAAAAAAAAAkgABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\generic_frame_settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.FrameHtmlCtrls" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\generic_frame_settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.first_cell_value" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\mon\measure_type\first_cell_value.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.measure_type" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEACAAEQAAAAAAAAAAEgAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>App_Code\views\frames\mon\measure_type\measure_type.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.rows_count" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\mon\measure_type\rows_count.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.mon_gauge" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgBgAAAABAAAAIIAQAIAEAAACAACQTAAAMAAAEAAA=</HashCode>
+      <FileName>App_Code\views\frames\mon\mon_gauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.mon_general" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIACRAIGRCBAAEgAYAIIIAFAQE1AAIAAEBBgAYEEEAA=</HashCode>
+      <FileName>App_Code\views\frames\mon\mon_general.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.mon_meter" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAABAAAAAIBAAIAEAAAAAACQAAECAAAAEAIA=</HashCode>
+      <FileName>App_Code\views\frames\mon\mon_meter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.BuildGridview" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABABAAAgIAAAAAAAAAAAAAAAAAAAAZAgAIBAAAAI=</HashCode>
+      <FileName>App_Code\views\frames\sql_query\build_gridview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.BuildInputbox" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAABAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\sql_query\build_inputbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.color_markers" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAIAAAAAAAAQAAAAAAACBAAAAAAAABAA=</HashCode>
+      <FileName>App_Code\views\frames\table\color_markers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.DynamicHyperlink" Collapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAACIAAAAAAAAAAACACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\frames\table\dynamic_hyperlink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frames.table_color_alarms" Collapsed="true">
+    <Position X="25.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAEAAQAJCAgAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>App_Code\views\frames\table\table_color_alarms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frontoffice.MenuBar" Collapsed="true">
+    <Position X="27" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAABQAAAAkAAAAACCAAAAAgCAAAAgCBA=</HashCode>
+      <FileName>App_Code\views\frontoffice\header_menu_bar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Frontoffice.MenuBarItem" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACAAAAAA=</HashCode>
+      <FileName>App_Code\views\frontoffice\header_menu_bar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Page.DrawFrames" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAYEAAAAQAAAgEAEAEAAAAAAAAAAAAQAQAAAAAAAAA=</HashCode>
+      <FileName>App_Code\views\page\draw_frames.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.Page.PageAuthentication" Collapsed="true">
+    <Position X="14.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAgAAACQAAAAAAAAAEACAAA=</HashCode>
+      <FileName>App_Code\views\page\page_authentication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

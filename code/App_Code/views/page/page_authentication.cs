@@ -3,30 +3,71 @@ using System.Collections.Generic;
 
 using DbConfig;
 
-/// <summary>
-/// Check if user has authorization to access the page
-/// </summary>
-public class PageAuthentication
+namespace Views.Page
 {
-    /* 
-        valida se a pagina está associada a users 
-        validar se o user esta autenticado
-            se existir
-                 validar se pagina tem autenticação e caso tenho então verifica se o user tem acesso 
-            se não existir
-                se a pagina tiver autenticação e o user não existir õu naõ tiver acesso então aponta para o frontoffice...
-     * 
-     *        
-    */
-    public PageAuthentication()
-	{
-
-	}
-
-    private List<Page> GetUserPages ()
+    /// <summary>
+    /// Check if user has authorization to access the page
+    /// </summary>
+    public class PageAuthentication
     {
-     
+        private readonly int _pageId;
+
+        private List<int> _userPages;
+
+        public PageAuthentication(int pageId)
+        {
+            _pageId = pageId;
+            _userPages = new List<int>();
+        }
+
+        /// <summary>
+        /// Check if page is from users
+        /// </summary>
+        /// <returns></returns>
+        private bool IsPagePrivate()
+        {
+            db_config_users users = new db_config_users();
+            users.Open();
+
+            return users.IsPageFromUsers(_pageId);
+        }
+
+        /// <summary>
+        /// check if user is loged on, and if he is then get user pages
+        /// </summary>
+        /// <returns></returns>
+        private bool IsUserAuthenticated()
+        {
+            try
+            {
+                object uld = db_config_sessions.GetUserAuthentication();
+
+                if (uld != null)
+                {
+                    _userPages = ((UserLoginData) uld).UserPages;
+
+                    return true;
+                }
+            }
+            catch { }
+
+            return false;
+        }
+
+        /// <summary>
+        /// check if page is from user
+        /// </summary>
+        /// <returns></returns>
+        private bool IsUserPage()
+        {
+            return _userPages.IndexOf(_pageId) != -1;
+        }
+
+        public bool IsPageVisible()
+        {
+            if (!IsPagePrivate()) return true;
+
+            return IsUserAuthenticated() && IsUserPage();
+        }
     }
-
-
 }

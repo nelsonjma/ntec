@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.DataVisualization.Charting;
 
 namespace DbConfig
 {
@@ -214,7 +216,12 @@ namespace DbConfig
                 using (_db)
                 {
                     if (_userName == string.Empty && _userId < 0)
-                        throw new Exception("error: no user selected...");
+                    {
+                        return (from u in _db.Users
+                            join up in _db.PageUsers on u.ID equals up.IDUser
+                            join p in _db.Page on up.IDPage equals p.ID
+                            select p).ToList();
+                    }
 
                     Users user = _userName != string.Empty
                                                 ? _db.Users.Single(x => x.Name == _userName)
@@ -622,6 +629,16 @@ namespace DbConfig
 
             return uld;
         }    
+
+        /* Check Page Status */
+        public bool IsPageFromUsers(int pageId)
+        {
+            List<Page> listPages = GetPages();
+
+            Page p = listPages.Find(x => x.ID == pageId);
+
+            return p != null;
+        }
     }
 
     public class UserLoginData

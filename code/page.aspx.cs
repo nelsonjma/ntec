@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 using Views.Page;
 using DbConfig;
@@ -37,6 +31,10 @@ public partial class page : System.Web.UI.Page
         dcp.Open();
 
         DbConfig.Page page = dcp.Get(pageName);
+
+         PageAuthentication pa = new PageAuthentication(page.ID);
+
+        if (!pa.IsPageVisible()) Response.Redirect("frontoffice.aspx");
 
         pageTitle.Text = page.Title;
 
