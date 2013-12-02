@@ -1,8 +1,10 @@
-﻿using System.Web;
+﻿using System.Data;
+using System.Web;
 using System.Web.UI;
 using System;
 using System.Collections;
 using System.Xml;
+using System.Data.SQLite;
 
 /// <summary>
 /// Methods that can be used in all pages.
@@ -288,5 +290,41 @@ public class Generic
 
 
         return newdata;
+    }
+
+    /// <summary>
+    /// Generic Method to return data from sqlite database type
+    /// </summary>
+    /// <param name="connStr"></param>
+    /// <param name="sql"></param>
+    /// <returns></returns>
+    public static DataSet GetSqliteData(string connStr, string sql)
+    {
+        DataSet ds = new DataSet();
+
+        using (SQLiteConnection conn = new SQLiteConnection(connStr))
+        {
+            conn.Open();
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(sql, conn);
+
+            try
+            {
+                da.Fill(ds);
+            }
+            catch (Exception)
+            {
+                ds = new DataSet();
+            }
+            finally
+            {
+                da.Dispose();
+
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        return ds;
     }
 }

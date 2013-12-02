@@ -57,4 +57,34 @@ public class data_handler
             throw new Exception("error loading xml data " + ex.Message);
         }
     }
+
+    /// <summary>
+    /// Loads data from sqlite file, default filter is the select to database
+    /// and if pageId and masterFilterId not empty will apply a filter
+    /// </summary>
+    static public DataView LoadDataFile(string connStr, string sql, string pageId, string masterFilterId)
+    {
+        try
+        {
+            if (sql == string.Empty || connStr == string.Empty) return new DataView();
+
+            string filters = string.Empty;
+
+            if (pageId != string.Empty && masterFilterId != string.Empty)
+            {
+                // loads information of session filters to pre filter data.
+                filters = Views.Frames.filter_sessions.GetMasterFilterString(Generic.GetHash(pageId), Generic.GetHash(masterFilterId));
+            }
+
+            DataSet ds = Generic.GetSqliteData(connStr, sql);
+
+            return ds.Tables.Count > 0 
+                            ? new DataView(DataTableFilter(ds.Tables[0], filters)) 
+                            : new DataView();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("error loading datafile " + ex.Message);
+        }
+    }
 }
