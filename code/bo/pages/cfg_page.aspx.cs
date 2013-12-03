@@ -197,13 +197,12 @@ public partial class bo_pages_cfg_page : System.Web.UI.Page
     /// </summary>
     private void NewPageDefaultValues()
     {
-        string xmlFolder = Generic.GetWebConfigValue("XmlQueryFolderPath");
-        string xmlUrl = Generic.GetWebConfigValue("XmlQueryVirtualPath");
+        //string xmlFolder = Generic.GetWebConfigValue("SqlDataFolderPath");
+        //string xmlUrl = Generic.GetWebConfigValue("SqlDataVirtualPath");
+        //string sitePath = System.Web.HttpContext.Current.Request.PhysicalApplicationPath;
 
-        string sitePath = System.Web.HttpContext.Current.Request.PhysicalApplicationPath;
-
-        p_xml_folder.Value = "default folder";
-        p_xml_url.Value = "default xml url";
+        p_xml_folder.Value = "default";
+        p_xml_url.Value = "default";
 
         BuildPageSelector(-1);
     }

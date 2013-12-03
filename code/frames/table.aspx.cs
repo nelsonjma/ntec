@@ -79,26 +79,57 @@ public partial class frames_table : System.Web.UI.Page
         int rowsCount = -1;
         
         // file name is here to be used outside the try catch
-        string xmlFilePath = string.Empty;
+        string filePath = string.Empty;
 
         try
         {
-            string defaultFilter = oi.GetSingle("default_filter"); /*** default filter => string defaultFilter = "select SUBESTADO, count as qtd group by SUBESTADO";  ***/
-            string xmlFileName = oi.GetSingle("xml_file").Trim();
+            /*
+             * default filter => 
+             * 
+             * default filter from XML is this way:
+             * default_filter = "select SUBESTADO, count as qtd group by SUBESTADO";  
+             * 
+             * default filder from sqlite is a query
+             * default_filder = "select * from xpto"
+             * 
+             */
 
-            // set real folder
-            xmlFilePath = GenericFrameSettings.BuildXmlFilePath(xmlFileName, frame.IDPage);
+            LoadData ld = new LoadData
+            {
+                PageId = frame.IDPage,
+                Datafile = oi.GetSingle("datafile"),
+                Datatable = oi.GetList("datatable"),
+                DefaultFilter = oi.GetSingle("default_filter"),
+                FileName = oi.GetSingle("xml_file"),
+                MasterFilterId = oi.GetSingle("master_filter").Trim()
+            };
 
             // set virtual folder
-            lbDownload.HRef = GenericFrameSettings.BuildXmlFileVirtualPath(xmlFileName, frame.IDPage); 
+            lbDownload.HRef = ld.GetVirtualFilePath();
+
+            // set real folder
+            filePath = ld.GetFilePath();
+
+            mGridView.DataSource = ld.GetData();
+
+            
+
+            //string defaultFilter = oi.GetSingle("default_filter"); /*** default filter => string defaultFilter = "select SUBESTADO, count as qtd group by SUBESTADO";  ***/
+            //string xmlFileName = oi.GetSingle("xml_file").Trim();
+
+            // set real folder
+            //xmlFilePath = GenericFrameSettings.BuildXmlFilePath(xmlFileName, frame.IDPage);
+
+            // set virtual folder
+            //lbDownload.HRef = GenericFrameSettings.BuildXmlFileVirtualPath(xmlFileName, frame.IDPage); 
             
             // load data from xml file
-            mGridView.DataSource = GenericFrameSettings.LoadXmlData(
+            /*mGridView.DataSource = GenericFrameSettings.LoadXmlData(
                                                                     xmlFilePath, 
                                                                     defaultFilter, 
                                                                     frame.IDPage.ToString(), 
                                                                     oi.GetSingle("master_filter").Trim()
-                                                                );
+                                                                );*/
 
             rowsCount = ((DataView)mGridView.DataSource).Count;
         }
@@ -146,7 +177,7 @@ public partial class frames_table : System.Web.UI.Page
 
                 /********** Show Xml File lastupd **********/
                 LabelFileLastUpdVisible(oi.GetSingle("show_xml_file_lastupd").Trim().ToLower().Equals("true"));
-                LoadLabelFileLastUpd(xmlFilePath);
+                LoadLabelFileLastUpd(filePath);
 
                 /********** Downloads **********/
                 LabelDownloadVisible(oi.GetSingle("label_download_visible").Trim().ToLower().Equals("false"));

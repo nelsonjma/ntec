@@ -82,18 +82,28 @@ public partial class frames_chart : System.Web.UI.Page
 
         try
         {
-            string defaultFilter = oi.GetSingle("default_filter"); /*** default filter => string defaultFilter = "select SUBESTADO, count as qtd group by SUBESTADO";  ***/
+            /*
+             * default filter => 
+             * 
+             * default filter from XML is this way:
+             * default_filter = "select SUBESTADO, count as qtd group by SUBESTADO";  
+             * 
+             * default filder from sqlite is a query
+             * default_filder = "select * from xpto"
+             * 
+             */
 
-            string xmlFileName = oi.GetSingle("xml_file");
+            LoadData ld = new LoadData
+                                    {
+                                        PageId = frame.IDPage,
+                                        Datafile = oi.GetSingle("datafile"),
+                                        Datatable = oi.GetList("datatable"),
+                                        DefaultFilter = oi.GetSingle("default_filter"),
+                                        FileName = oi.GetSingle("xml_file"),
+                                        MasterFilterId = oi.GetSingle("master_filter").Trim()
+                                    };
 
-            string xmlFilePath = GenericFrameSettings.BuildXmlFilePath(xmlFileName, frame.IDPage); // set real folder
-
-            DataView dataView = GenericFrameSettings.LoadXmlData(
-                                                                xmlFilePath, 
-                                                                defaultFilter, 
-                                                                frame.IDPage.ToString(), 
-                                                                oi.GetSingle("master_filter").Trim()
-                                                                );
+            DataView dataView = ld.GetData();
 
             rowsCount = dataView.Count;
 

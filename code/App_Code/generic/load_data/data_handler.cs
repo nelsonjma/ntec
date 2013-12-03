@@ -62,7 +62,7 @@ public class data_handler
     /// Loads data from sqlite file, default filter is the select to database
     /// and if pageId and masterFilterId not empty will apply a filter
     /// </summary>
-    static public DataView LoadDataFile(string connStr, string sql, string pageId, string masterFilterId)
+    static public DataView LoadSqliteDataFile(string connStr, string sql, string pageId, string masterFilterId)
     {
         try
         {

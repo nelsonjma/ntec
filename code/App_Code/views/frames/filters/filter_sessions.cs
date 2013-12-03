@@ -40,19 +40,19 @@ namespace Views.Frames
         }
 
         /************** Xml File Last Update **************/
-        static public object GetXmlFileLastUpd(string pageIdHash, string filterTitleHash)
+        static public object GetDataFileLastUpd(string pageIdHash, string filterTitleHash)
         {
             try
             {
                 return HttpContext.Current.Session["filter_xml_lastupd_" + pageIdHash + "_" + filterTitleHash];
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
-        static public void SetXmlFileLastUpd(string pageIdHash, string filterTitleHash, DateTime dt)
+        static public void SetDataFileLastUpd(string pageIdHash, string filterTitleHash, DateTime dt)
         {
             HttpContext.Current.Session["filter_xml_lastupd_" + pageIdHash + "_" + filterTitleHash] = dt;
         }

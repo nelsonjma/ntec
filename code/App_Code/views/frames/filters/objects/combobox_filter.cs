@@ -27,7 +27,7 @@ namespace Views.Frames
         private string _cssTitle;
         private string _cssCombox;
 
-        public combobox_filter(string pageId, string filterTitle, string title, DataTable dt)
+        public combobox_filter(string pageId, string filterTitle, string title, DataView originalDv)
         {
             _pageIdHash = pageId;
 
@@ -39,11 +39,11 @@ namespace Views.Frames
             _cssTitle = string.Empty;
             _cssCombox = string.Empty;
 
-            LoadData(dt);
+            LoadData(originalDv);
         }
 
         /************ Load Data ************/
-        private void LoadData(DataTable dt)
+        private void LoadData(DataView originalDv)
         {
             DataTable filteredDt = null;
             DataView dv = new DataView();
@@ -52,7 +52,7 @@ namespace Views.Frames
             {
                 _listFilteredRows = new SortedList();
 
-                dv = dt.DefaultView.ToTable(true, _title).DefaultView; dv.Sort = _title;
+                dv = originalDv.ToTable(true, _title).DefaultView; dv.Sort = _title;
 
                 filteredDt = dv.ToTable();
 

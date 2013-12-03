@@ -66,10 +66,10 @@ public partial class frames_filters : System.Web.UI.Page
         }
 
         string filterTitle = frame.Title;
-        string pageId = frame.IDPage.ToString();
+        int pageId = frame.IDPage;
 
         ViewState["filter_title"] = filterTitle;
-        ViewState["filter_pageid"] = pageId;
+        ViewState["filter_pageid"] = pageId.ToString();
 
         // ------ Load Javascript ------
         SetTitlePosition();
@@ -91,48 +91,57 @@ public partial class frames_filters : System.Web.UI.Page
         if (ViewState["list_columns_" + Generic.GetHash(filterTitle)] == null)
             ViewState["list_columns_" + Generic.GetHash(filterTitle)] = listColummns;
 
-        string xmlFileName = oi.GetSingle("xml_file").Trim();
-        string xmlFilePath = GenericFrameSettings.BuildXmlFilePath(xmlFileName, frame.IDPage); // set real folder
-
         bool isVertical = oi.GetSingle("vertical_filtes").Equals("true", StringComparison.CurrentCultureIgnoreCase);
 
-        if (xmlFileName != string.Empty)
+        LoadData ld = new LoadData
+        {
+            PageId = pageId,
+            Datafile = oi.GetSingle("datafile"),
+            Datatable = oi.GetList("datatable"),
+            DefaultFilter = oi.GetSingle("default_filter"),
+            FileName = oi.GetSingle("xml_file"),
+            MasterFilterId = oi.GetSingle("master_filter").Trim()
+        };
+
+        if (ld.FileName != string.Empty || ld.Datafile != string.Empty)
             BuildFilters(
-                        xmlFilePath, 
+                        ld,
                         listColummns, 
-                        pageId, 
                         filterTitle,
                         isVertical
                     );
     }
 
     /********* Filter *********/
-    private void BuildFilters(string xmlFile, List<string> listColummns, string pageId, string filterTitle, bool isVertical)
+    //private void BuildFilters(string xmlFile, List<string> listColummns, string pageId, string filterTitle, bool isVertical)
+    private void BuildFilters(LoadData ld, List<string> listColummns, string filterTitle, bool isVertical)
     {
         Table t = new Table();
         TableRow tr = new TableRow();
 
+        string pageId = ld.PageId.ToString();
+
         // transform the ids into hash ids to send the column to memory or to get them from memory
         string filterTitleHash  = Generic.GetHash(filterTitle);
-        string pageIdHash       = Generic.GetHash(pageId);
+        string pageIdHash = Generic.GetHash(pageId);
 
-        bool isXmlFileChanged   = IsXmlFileChanged(xmlFile, pageIdHash, filterTitleHash);
+        bool isDataFileChanged = IsDataFileChanged(ld.GetFilePath(), pageIdHash, filterTitleHash);
         bool areFiltersNull     = AreFiltersNull(listColummns, pageIdHash, filterTitleHash);
 
-        if (isXmlFileChanged || areFiltersNull) // if first time that the page loads or xml file has changed
+        if (isDataFileChanged || areFiltersNull) // if first time that the page loads or xml file has changed
         {
-            DataSet ds = new DataSet();
+            DataView dv = new DataView();
 
             try
             {
-                 ds.ReadXml(xmlFile);
+                dv = ld.GetData();
             }
             catch (Exception ex)
             {
                 loging.Error("filter", "load xml file", ex.Message, ViewState["log_file"].ToString());
             }
 
-            if (ds.Tables.Count > 0)
+            if (dv.Count > 0)
             {
                 foreach (string column in listColummns)
                 {
@@ -140,7 +149,7 @@ public partial class frames_filters : System.Web.UI.Page
                     {
                         string columnHash = Generic.GetHash(column);
                         // ----------------------------
-                        combobox_filter cbf = new combobox_filter(pageId, filterTitle, column, ds.Tables[0]);   // generate combobox
+                        combobox_filter cbf = new combobox_filter(pageId, filterTitle, column, dv);   // generate combobox
 
                         filter_sessions.SetFilterItem(pageIdHash, filterTitleHash, columnHash, cbf); // send the columns to memory
 
@@ -184,13 +193,13 @@ public partial class frames_filters : System.Web.UI.Page
         filterPanel.Controls.Add(t); 
     }
 
-    private bool IsXmlFileChanged(string xmlFile, string pageIdHash, string filterTitleHash)
+    private bool IsDataFileChanged(string file, string pageIdHash, string filterTitleHash)
     {
         try
         {
-            DateTime dtFile = File.GetLastWriteTime(xmlFile);
+            DateTime dtFile = File.GetLastWriteTime(file);
 
-            object fileDate = filter_sessions.GetXmlFileLastUpd(pageIdHash, filterTitleHash);
+            object fileDate = filter_sessions.GetDataFileLastUpd(pageIdHash, filterTitleHash);
 
             if (fileDate != null)
             {
@@ -200,7 +209,7 @@ public partial class frames_filters : System.Web.UI.Page
                     return false;
             }
 
-            filter_sessions.SetXmlFileLastUpd(pageIdHash, filterTitleHash, dtFile);
+            filter_sessions.SetDataFileLastUpd(pageIdHash, filterTitleHash, dtFile);
         }
         catch (Exception ex)
         {

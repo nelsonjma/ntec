@@ -73,8 +73,7 @@ public partial class mon : System.Web.UI.Page
 
         SelectMon(monType); // meter / gauge
 
-        /********** Select Filter **********/
-        SelectFilter(oi.GetSingle("default_filter"));
+        
 
         /********** Width, Height **********/
         string newWidth = oi.GetSingle("width");
@@ -101,10 +100,17 @@ public partial class mon : System.Web.UI.Page
         /********** Templates em Xml **********/
         LoadXmlTemplate(oi.GetSingle("design_template"));
 
+
+
+        /********** Select Filter **********/
+        SelectFilter(oi.GetSingle("default_filter"));
+
         /********** Load Xml **********/
         string xmlFileName = GenericFrameSettings.BuildXmlFilePath(oi.GetSingle("xml_file"), frame.IDPage);
 
         AddXmlFile(xmlFileName);
+
+
 
         /********** Measure Type **********/
         MeasureType(oi.GetSingle("measure_type"));
