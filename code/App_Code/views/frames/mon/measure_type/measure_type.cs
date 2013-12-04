@@ -9,12 +9,16 @@ namespace Views.Frames
     public abstract class measure_type
     {
         protected string _log;
-        protected string _fileName;
+        
         protected int _measureValue;
+
+        // Sqlite/Xml file
+        protected LoadData _loadData;
 
         protected measure_type()
         {
-            _fileName = string.Empty;
+            _loadData = null;
+
             _measureValue = 0;
 
             _log = Generic.GetWebConfigValue("LogFilePath");
@@ -26,44 +30,19 @@ namespace Views.Frames
             set { _log = value; }
         }
 
-        protected string XmlFileName
+        public LoadData LoadData
         {
-            get { return _fileName; }
-            set { _fileName = value; }
+            get { return _loadData; }
+            set { _loadData = value; }
         }
 
         protected DataView GetData()
         {
             try
             {
-                if (_fileName != string.Empty)
+                if (LoadData != null)
                 {
-                    DataSet ds = new DataSet();
-
-                    ds.ReadXml(_fileName);
-
-                    return ds.Tables.Count > 0 
-                            ? ds.Tables[0].AsDataView()
-                            : new DataView();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("error: get data " + ex.Message + " ...");
-            }
-
-            return new DataView();
-        }
-
-        protected DataView GetData(string filter)
-        {
-            try
-            {
-                if (_fileName != string.Empty)
-                {
-                    return filter == string.Empty 
-                                            ? GetData()
-                                            : data_handler.LoadXmlData(_fileName, filter, string.Empty, string.Empty);
+                    return LoadData.GetData();
                 }
             }
             catch (Exception ex)
@@ -75,8 +54,6 @@ namespace Views.Frames
         }
 
         public abstract void BuildMeasure();
-
-        public abstract void BuildMeasure(string filter);
 
         public int MeasureValue
         {

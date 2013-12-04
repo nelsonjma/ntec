@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Data;
 using DbConfig;
@@ -51,10 +52,8 @@ public class LoadData
         if (FileName != string.Empty)
             return BuildFilePath(FileName);
 
-
         if (Datafile != string.Empty)
             return BuildFilePath(Datafile);
-
 
         return string.Empty;
     }
@@ -64,12 +63,77 @@ public class LoadData
         if (FileName != string.Empty)
             return BuildXmlFileVirtualPath(FileName);
 
-
         if (Datafile != string.Empty)
             return BuildXmlFileVirtualPath(Datafile);
 
+        return string.Empty;
+    }
+
+    public string GetDataFileName()
+    {
+        if (FileName != string.Empty)
+            return FileName;
+
+        if (Datafile != string.Empty)
+        {
+            return Datafile;
+        }
+            
+        return string.Empty;
+    }
+
+    public string GetProcessedDataFileName()
+    {
+        if (FileName != string.Empty)
+            return BuildFilePath(FileName);
+
+        if (Datafile != string.Empty)
+        {
+            return BuildSqliteDataFileConnection();
+        }
 
         return string.Empty;
+    }
+
+    public string GetProcessedDefaultFilter()
+    {
+        if (Datafile == string.Empty)
+            return DefaultFilter;
+        
+        // if datafile is not empty
+        string sql = DefaultFilter;
+
+        string table = Datafile;
+
+        if (DefaultFilter == string.Empty)
+        {
+            if (Datatable.Count > 0) 
+                table = Datatable[0];
+
+            sql = "select * from " + table;
+        }
+
+        return sql;
+    }
+
+    public string GetDataType()
+    {
+        if (FileName != string.Empty)
+            return "xml";
+
+        if (Datafile != string.Empty)
+            return "sqlite";
+            
+        return string.Empty;
+    }
+
+    public void SetDataType(string datatype, string datafile)
+    {
+        if (datatype == "xml")
+            FileName = datafile;
+
+        if (datatype == "sqlite")
+            Datafile = datafile;
     }
 
     /***************** Private *****************/
@@ -78,9 +142,11 @@ public class LoadData
     {
         try
         {
+            string pageId = PageId != -1 ? PageId.ToString() : string.Empty;
+
             string filename = BuildFilePath(FileName);
 
-            return data_handler.LoadXmlData(filename, DefaultFilter, PageId.ToString(), MasterFilterId);
+            return data_handler.LoadXmlData(filename, DefaultFilter, pageId, MasterFilterId);
         }
         catch (Exception ex)
         {
@@ -92,24 +158,13 @@ public class LoadData
     {
         try
         {
-            string datafile = BuildFilePath(Datafile);
+            string pageId = PageId != -1 ? PageId.ToString() : string.Empty;
 
-            string connStr = datafile.EndsWith(".db")
-                            ? "Data Source=" + datafile + ";Version=3;Read Only=True;"
-                            : "Data Source=" + datafile + ".db;Version=3;Read Only=True;";
+            string connStr = BuildSqliteDataFileConnection();
 
-            string sql = DefaultFilter;
+            string sql = GetProcessedDefaultFilter();
 
-            string table = Datafile;
-
-            if (DefaultFilter == string.Empty)
-            {
-                if (Datatable.Count > 0) table = Datatable[0];
-
-                sql = "select * from " + table;
-            }
-
-            return data_handler.LoadSqliteDataFile(connStr, sql, PageId.ToString(), MasterFilterId);
+            return data_handler.LoadSqliteDataFile(connStr, sql, pageId, MasterFilterId);
         }
         catch (Exception ex)
         {
@@ -132,10 +187,15 @@ public class LoadData
             if (string.IsNullOrEmpty(fileName)) throw new Exception("filename is empty");
 
             // page fisical path
-            page = new db_config_page(PageId, false);
-            page.Open();
-            string pageDataFolder = page.Get(PageId).XMLFolderPath;
+            string pageDataFolder = string.Empty;
 
+            if (PageId != -1)
+            {
+                page = new db_config_page(PageId, false);
+                page.Open();
+                pageDataFolder = page.Get(PageId).XMLFolderPath;    
+            }
+            
             // webconfig fisical path
             string sitePath = System.Web.HttpContext.Current.Request.PhysicalApplicationPath;
             string dataFile = Generic.GetWebConfigValue("DataFolderPath");
@@ -188,9 +248,14 @@ public class LoadData
             if (string.IsNullOrEmpty(fileName)) throw new Exception("filename is empty");
 
             // page virtual path
-            page = new db_config_page(PageId, false);
-            page.Open();
-            string pageXmlUrl = page.Get(PageId).XMLURL;
+            string pageXmlUrl = string.Empty;
+
+            if (PageId != -1)
+            {
+                page = new db_config_page(PageId, false);
+                page.Open();
+                pageXmlUrl = page.Get(PageId).XMLURL;
+            }
 
             // webconfig virtual path
             string virtualFolder = Generic.GetWebConfigValue("DataVirtualFolderPath");
@@ -215,5 +280,21 @@ public class LoadData
         {
             if (page != null) page.Close();
         }
+    }
+
+    /// <summary>
+    /// Get the database file path to build the slite connection,
+    /// someting like this Data Source=my_database.db;Version=3;Read Only=True;
+    /// </summary>
+    /// <returns></returns>
+    private string BuildSqliteDataFileConnection()
+    {
+        string datafile = BuildFilePath(Datafile);
+
+        string connStr = datafile.EndsWith(".db")
+                        ? "Data Source=" + datafile + ";Version=3;Read Only=True;"
+                        : "Data Source=" + datafile + ".db;Version=3;Read Only=True;";
+
+        return connStr;
     }
 }

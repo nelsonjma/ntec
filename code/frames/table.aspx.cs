@@ -112,25 +112,6 @@ public partial class frames_table : System.Web.UI.Page
 
             mGridView.DataSource = ld.GetData();
 
-            
-
-            //string defaultFilter = oi.GetSingle("default_filter"); /*** default filter => string defaultFilter = "select SUBESTADO, count as qtd group by SUBESTADO";  ***/
-            //string xmlFileName = oi.GetSingle("xml_file").Trim();
-
-            // set real folder
-            //xmlFilePath = GenericFrameSettings.BuildXmlFilePath(xmlFileName, frame.IDPage);
-
-            // set virtual folder
-            //lbDownload.HRef = GenericFrameSettings.BuildXmlFileVirtualPath(xmlFileName, frame.IDPage); 
-            
-            // load data from xml file
-            /*mGridView.DataSource = GenericFrameSettings.LoadXmlData(
-                                                                    xmlFilePath, 
-                                                                    defaultFilter, 
-                                                                    frame.IDPage.ToString(), 
-                                                                    oi.GetSingle("master_filter").Trim()
-                                                                );*/
-
             rowsCount = ((DataView)mGridView.DataSource).Count;
         }
         catch (Exception ex)

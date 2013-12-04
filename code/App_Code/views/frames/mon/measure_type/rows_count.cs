@@ -8,16 +8,12 @@ namespace Views.Frames
     /// </summary>
     public class rows_count : measure_type
     {
-        public rows_count(string xmlFileName)
-        {
-            XmlFileName = xmlFileName;
-        }
 
         public override void BuildMeasure()
         {
             try
             {
-                if (XmlFileName == string.Empty) return;
+                if (LoadData == null) return;
 
                 MeasureValue = GetData().Count;
             }
@@ -27,6 +23,7 @@ namespace Views.Frames
             }
         }
 
+        /*
         public override void BuildMeasure(string filter)
         {
             try
@@ -40,5 +37,6 @@ namespace Views.Frames
                 loging.Error("mon", "buid measure", ex.Message, Log);
             }
         }
+        */
     }
 }

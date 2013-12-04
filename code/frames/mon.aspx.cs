@@ -100,17 +100,17 @@ public partial class mon : System.Web.UI.Page
         /********** Templates em Xml **********/
         LoadXmlTemplate(oi.GetSingle("design_template"));
 
+        /********** Sqlite/Xml File Control **********/
+        LoadData ld = new LoadData
+        {
+            PageId = frame.IDPage,
+            Datafile = oi.GetSingle("datafile"),
+            Datatable = oi.GetList("datatable"),
+            DefaultFilter = oi.GetSingle("default_filter"),
+            FileName = oi.GetSingle("xml_file"),
+        };
 
-
-        /********** Select Filter **********/
-        SelectFilter(oi.GetSingle("default_filter"));
-
-        /********** Load Xml **********/
-        string xmlFileName = GenericFrameSettings.BuildXmlFilePath(oi.GetSingle("xml_file"), frame.IDPage);
-
-        AddXmlFile(xmlFileName);
-
-
+        LoadData(ld);
 
         /********** Measure Type **********/
         MeasureType(oi.GetSingle("measure_type"));
@@ -227,9 +227,9 @@ public partial class mon : System.Web.UI.Page
         _mon.MeasureType = type;
     }
 
-    private void AddXmlFile(string filePath)
+    private void LoadData(LoadData ld)
     {
-        _mon.XmlFileName = filePath;
+        _mon.LoadData = ld;
     }
 
     private void LoadXmlTemplate(string name)
@@ -281,15 +281,6 @@ public partial class mon : System.Web.UI.Page
                 _mon.DefaultValue = Convert.ToInt32(value);
         }
         catch { }
-    }
-
-    /// <summary>
-    /// Add a select filter to xml data
-    /// </summary>
-    /// <param name="filter"></param>
-    private void SelectFilter(string filter)
-    {
-        _mon.SelectFilter = filter;
     }
 
     private void ChangeGaugeNeedleSize(string needlesize)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Globalization;
+using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
@@ -23,7 +24,7 @@ public class mon_service : WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string FirstCellValue(string xmlFileName, string selectFilter, string ctrl)
+    public string FirstCellValue(string datatype, string datafile, string selectFilter, string ctrl)
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
 
@@ -31,26 +32,29 @@ public class mon_service : WebService
 
         MonData mon = new MonData() { Data = "0" };
 
-        if (ctrl != crlHash)
+        if (ctrl != crlHash || datatype == string.Empty)
             return js.Serialize(mon);
 
         try
         {
-            // transform select filter so that it can be read
-            selectFilter = HttpUtility.UrlDecode(selectFilter);
+            LoadData ld = new LoadData
+            {
+                // Decoder select filter so that it can be read
+                DefaultFilter = HttpUtility.UrlDecode(selectFilter) 
+            };
 
-            // transform xml file path so that it can be read
-            xmlFileName = HttpUtility.UrlDecode(xmlFileName);
+            // Decoder datafile information
+            ld.SetDataType(datatype, HttpUtility.UrlDecode(datafile));
 
-            first_cell_value fcv = new first_cell_value(xmlFileName);
 
-            if (selectFilter != string.Empty)
-                fcv.BuildMeasure(selectFilter); // get data from file and apply filter
-            else
-                fcv.BuildMeasure();             // just get data from file 
+            measure_type fcv = new first_cell_value();
+            fcv.LoadData = ld;
 
-            mon.Data = fcv.MeasureValue.ToString(); // apply measurement
-           
+            // just get data from file 
+            fcv.BuildMeasure();
+
+            // apply measurement
+            mon.Data = fcv.MeasureValue.ToString(CultureInfo.InvariantCulture); 
         }
         catch (Exception ex)
         {
@@ -62,7 +66,7 @@ public class mon_service : WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string RowCount(string xmlFileName, string selectFilter, string ctrl)
+    public string RowCount(string datatype, string datafile, string selectFilter, string ctrl)
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
 
@@ -70,26 +74,28 @@ public class mon_service : WebService
 
         MonData mon = new MonData() { Data = "0" };
 
-        if (ctrl != crlHash)
+        if (ctrl != crlHash || datatype == string.Empty)
             return js.Serialize(mon);
 
         try
         {
-            // transform select filter so that it can be read
-            selectFilter = HttpUtility.UrlDecode(selectFilter);
+            LoadData ld = new LoadData
+            {
+                // Decoder select filter so that it can be read
+                DefaultFilter = HttpUtility.UrlDecode(selectFilter)
+            };
 
-            // transform xml file path so that it can be read
-            xmlFileName = HttpUtility.UrlDecode(xmlFileName);
+            // Decoder datafile information and the load it to a sqlite/xml selector
+            ld.SetDataType(datatype, HttpUtility.UrlDecode(datafile));
 
-            rows_count fcv = new rows_count(xmlFileName);
+            measure_type fcv = new rows_count();
+            fcv.LoadData = ld;
+            
+            // just get data from file 
+            fcv.BuildMeasure();
 
-            if (selectFilter != string.Empty)
-                fcv.BuildMeasure(selectFilter); // get data from file and apply filter
-            else
-                fcv.BuildMeasure();             // just get data from file 
-
-            mon.Data = fcv.MeasureValue.ToString(CultureInfo.InvariantCulture); // apply measurement
-
+            // apply measurement
+            mon.Data = fcv.MeasureValue.ToString(CultureInfo.InvariantCulture);
         }
         catch (Exception ex)
         {

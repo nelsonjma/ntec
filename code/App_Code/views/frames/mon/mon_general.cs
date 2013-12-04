@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 
 namespace Views.Frames
 {
@@ -17,11 +15,8 @@ namespace Views.Frames
         // refresh interval
         protected int _refreshInterval;
 
-        // xml file to read
-        protected string _xmlFileName;
-
-        // select filter
-        protected string _selectFilter;
+        // sqlite/xml file control
+        protected LoadData _loadData;
 
         // web service running method
         protected string _measureType;
@@ -65,9 +60,9 @@ namespace Views.Frames
 
             _refreshInterval = 60000;
 
-            _xmlFileName = string.Empty;
-
-            _selectFilter = string.Empty;
+            //_xmlFileName = string.Empty;
+            //_selectFilter = string.Empty;
+            _loadData = null;
 
             _min = 0;
             _max = 100;
@@ -149,9 +144,9 @@ namespace Views.Frames
         /* Public */
         public string GetJavaScript()
         {
-            return _xmlFileName != string.Empty
-                    ? BuildJavasScript()
-                    : string.Empty;
+            return _loadData != null
+                                ? BuildJavasScript()
+                                : string.Empty;
         }
 
         /********/
@@ -193,16 +188,10 @@ namespace Views.Frames
             set { _templateFolder = value; }
         }
 
-        public string XmlFileName
+        public LoadData LoadData
         {
-            get { return _xmlFileName; }
-            set { _xmlFileName = value; }
-        }
-
-        public string SelectFilter
-        {
-            get { return _selectFilter; }
-            set { _selectFilter = value; }
+            get { return _loadData; }
+            set { _loadData = value; }
         }
 
         /// <summary>

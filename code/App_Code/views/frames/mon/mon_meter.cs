@@ -146,15 +146,20 @@ namespace Views.Frames
 
         protected override string BuildAjax()
         {
+            // if loaddata is null then there is noting to do...
+            if (LoadData == null) return string.Empty;
+
             string ajax = string.Empty;
 
             string webServiceMethod = MeasureType.ToLower() == "firstcellvalue" ? "FirstCellValue" : "RowCount";
 
             string crlHash = HashKey;
 
-            string ajaxReadyStr = HttpUtility.UrlEncode(_xmlFileName);
+            string ajaxReadyStr = HttpUtility.UrlEncode(LoadData.GetDataFileName());
 
-            string ajaxSelectFilter =  HttpUtility.UrlEncode(_selectFilter);
+            string ajaxSelectFilter = HttpUtility.UrlEncode(LoadData.GetProcessedDefaultFilter());
+
+            string datatype = LoadData.GetDataType();
 
             ajax += "\n";
             ajax += "   function GetData() { \n";
@@ -169,7 +174,7 @@ namespace Views.Frames
             ajax += "   $.ajax({ \n";
             ajax += "               type: 'POST',  \n";
             ajax += "               url: './mon_service.asmx/" + webServiceMethod + "', \n";
-            ajax += "               data: \"{'xmlFileName': '" + ajaxReadyStr + "', 'selectFilter':'" + ajaxSelectFilter + "', 'ctrl': '" + crlHash + "'}\", \n";
+            ajax += "               data: \"{'datatype':'" + datatype + "','datafile': '" + ajaxReadyStr + "', 'selectFilter':'" + ajaxSelectFilter + "', 'ctrl': '" + crlHash + "'}\", \n";
             ajax += "               contentType: 'application/json; charset=utf-8', \n";
             ajax += "               dataType: 'json', \n";
             ajax += "               success: function (data) { \n";
