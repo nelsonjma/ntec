@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System;
@@ -326,5 +327,18 @@ public class Generic
         }
 
         return ds;
+    }
+
+    /// <summary>
+    /// Case insensitive replace function.
+    /// </summary>
+    /// <param name="originalStr">The string to examine.(HayStack)</param>
+    /// <param name="oldValue">The value to replace.(Needle)</param>
+    /// <param name="newValue">The new value to be inserted</param>
+    /// <returns>A string</returns>
+    public static string CaseInsensitiveReplace(string originalStr, string oldValue, string newValue)
+    {
+        Regex regEx = new Regex(oldValue, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+        return regEx.Replace(originalStr, newValue);
     }
 }

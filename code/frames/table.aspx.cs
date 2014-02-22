@@ -64,8 +64,8 @@ public partial class frames_table : System.Web.UI.Page
             lbTitle.InnerText = frame.Title;
             TitleStyle(oi.GetList("title_style")); // title style
 
-            // loads javascript that controls title position
-            SetTitlePosition(); 
+            // ------ Load Javascript ------ 
+            SetTitlePosition(); // loads javascript that controls title position
         }
         else
         {

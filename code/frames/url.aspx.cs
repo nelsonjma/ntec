@@ -53,7 +53,7 @@ public partial class frames_url : System.Web.UI.Page
         // ------ Title ------
         headerTitle.Text = frame.Title;
 
-        if (!oi.GetSingle("title_is_hidden").Equals("false"))
+        if (!oi.GetSingle("title_is_hidden").Equals("true")) // hide title if value is true, else will always show the title
         {
             lbTitle.InnerText = frame.Title;
             TitleStyle(oi.GetList("title_style")); // title style

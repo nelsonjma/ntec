@@ -51,6 +51,9 @@ public partial class frames_filters : System.Web.UI.Page
         
         OptionItems oi = new OptionItems(frame.Options);
 
+        // ------ Frame css ------
+        ChangeCss(oi.GetSingle("css"));
+
         // ------ Title ------
         headerTitle.Text = frame.Title;
 

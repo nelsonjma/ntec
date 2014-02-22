@@ -61,10 +61,10 @@ public class LoadData
     public string GetVirtualFilePath()
     {
         if (FileName != string.Empty)
-            return BuildXmlFileVirtualPath(FileName);
+            return BuildFileVirtualPath(FileName);
 
         if (Datafile != string.Empty)
-            return BuildXmlFileVirtualPath(Datafile);
+            return BuildFileVirtualPath(Datafile);
 
         return string.Empty;
     }
@@ -233,8 +233,8 @@ public class LoadData
         }
     }
 
-    /* Build Virtual Path */
-    private string BuildXmlFileVirtualPath(string fileName)
+    /* Build Xml Virtual Path */
+    private string BuildFileVirtualPath(string fileName)
     {
         db_config_page page = null;
 

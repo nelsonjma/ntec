@@ -10,7 +10,7 @@
     
     <!-- Site -->
     <link href="~/css/views/frames/default.css" rel="stylesheet" />
-    <link id="cssStyle" runat="server" href="~/css/views/frames/default_mon.css" rel="stylesheet" />
+    <link id="cssStyle" runat="server" href="~/css/views/frames/default_url.css" rel="stylesheet" />
 
     <script src="../js/generic.js"></script>
 

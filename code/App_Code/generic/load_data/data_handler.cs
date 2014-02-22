@@ -1,8 +1,26 @@
 ﻿using System;
 using System.Data;
 
+
 public class data_handler
 {
+    static public string AddFiltersToSql(string sql, string filters)
+    {
+        // if does not contais a from you are fk and this is not my fault :)
+        if (sql.IndexOf("from", StringComparison.OrdinalIgnoreCase) == -1 || filters == string.Empty) return sql;
+
+        if (sql.IndexOf("where", StringComparison.OrdinalIgnoreCase) != -1)
+            return Generic.CaseInsensitiveReplace(sql, "where", "where " + filters + " ");
+
+        if (sql.IndexOf("group by", StringComparison.OrdinalIgnoreCase) != -1)
+            return Generic.CaseInsensitiveReplace(sql, "group by", "where " + filters + " group by");
+
+        if (sql.IndexOf("order by", StringComparison.OrdinalIgnoreCase) != -1)
+            return Generic.CaseInsensitiveReplace(sql, "order by", "where " + filters + " order by");
+
+        return sql + " where " + filters;
+    }
+
     static public DataTable DataTableFilter(DataTable dtin, string query)
     {
         if (query == string.Empty) return dtin; // se não existir nada para fazer baza...
@@ -76,11 +94,14 @@ public class data_handler
                 filters = Views.Frames.filter_sessions.GetMasterFilterString(Generic.GetHash(pageId), Generic.GetHash(masterFilterId));
             }
 
+            // here we can add the filters to the query
+            sql = AddFiltersToSql(sql, filters);
+
             DataSet ds = Generic.GetSqliteData(connStr, sql);
 
             return ds.Tables.Count > 0 
-                            ? new DataView(DataTableFilter(ds.Tables[0], filters)) 
-                            : new DataView();
+                    ? ds.Tables[0].AsDataView() 
+                    : new DataView();
         }
         catch (Exception ex)
         {
